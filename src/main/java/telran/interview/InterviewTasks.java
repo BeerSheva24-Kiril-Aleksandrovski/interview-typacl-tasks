@@ -13,13 +13,13 @@ public class InterviewTasks {
     static public boolean hasSumTwo(int [] array, int sum) {
         boolean res = false;
         int i = 0;
-        Map<Integer, Integer> numToIndexMap = new HashMap<>();
+        Set<Integer> numToIndexMap = new HashSet<>();
         while (!res && i < array.length) {
             int diff = sum - array[i];
-            if(numToIndexMap.containsKey(diff)) {
+            if(numToIndexMap.contains(diff)) {
                 res = true;
             }
-            numToIndexMap.put(array[i], i);
+            numToIndexMap.add(array[i]);
             i++;
         }
         return res;
